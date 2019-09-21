@@ -1,0 +1,145 @@
+// Bootstrap variables start
+$theme-colors: ();
+$theme-colors: (
+	primary: #662f90,
+	primary-alt: #662f90
+);
+$grid-breakpoints: ( xs: 0, sm: 576px, md: 768px, lg: 1024px, xl: 1230px);
+$container-max-widths: ( sm: 100%, md: 100%, lg: 100%, xl: 1200px);
+$spacer: 30px;
+$spacers: ( 0: 0, 1: 10px, 15: 15px, 2: 20px, 3: $spacer, 4: 40px, 5: 50px, 6: 60px, 7: 70px, 8: 80px);
+$font-size-base: 16px;
+$line-height-base: 1.75;
+$body-bg: $white;
+$body-color: #787878;
+$gray-150: #f7f7f7;
+$gray-100: #e5e5e5;
+$gray-200: #d5d5d5;
+$gray-300: #c3c3c3;
+$gray-500: #909090;
+$gray-700: #363534;
+$btn-border-radius: 0;
+$input-btn-focus-width: 0;
+$link-color: $body-color;
+$link-hover-color: theme-color("primary");
+$headings-font-family: 'Roboto', serif;
+$h1-font-size: 42px;
+$h2-font-size: 42px;
+$h3-font-size: 32px;
+$h4-font-size: 24px;
+$h5-font-size: 22px;
+$h6-font-size: 18px;
+// popovers
+$popover-bg: theme-color("primary");
+$popover-max-width: 315px;
+$popover-border-width: 0;
+$popover-box-shadow: 0;
+$popover-body-color: $white;
+$popover-body-padding-y: $popover-header-padding-y !default;
+$popover-body-padding-x: $popover-header-padding-x !default;
+$popover-arrow-width: 8px;
+$popover-arrow-height: 8px;
+$popover-arrow-color: $popover-bg;
+$popover-arrow-outer-color: $popover-bg;
+$input-bg: $white;
+$input-color: #424242;
+$input-border-color: $gray-100;
+$input-box-shadow: none;
+$input-border-radius: 5px;
+$input-focus-border-color: $gray-100;
+$input-placeholder-color: $body-color;
+$input-group-addon-bg: $input-bg;
+$custom-control-indicator-checked-bg: theme-color("primary");
+$custom-control-indicator-active-bg: lighten(theme-color("primary"), 35%);
+$input-btn-padding-y: 10px;
+$input-btn-padding-x: 12px;
+$input-btn-line-height: 19px;
+$input-btn-focus-width: 0;
+$input-btn-focus-color: 0;
+$input-btn-focus-box-shadow: none;
+$btn-font-weight: $font-weight-normal;
+$btn-box-shadow: none;
+$btn-active-box-shadow: none;
+$btn-border-radius: 2px;
+$dropdown-link-active-color: inherit;
+$dropdown-link-active-bg: transparent;
+// pagination
+$pagination-padding-y: 5px;
+$pagination-padding-x: 10px;
+$pagination-padding-y-sm: 5px;
+$pagination-padding-x-sm: 10px;
+$pagination-padding-y-lg: 5px;
+$pagination-padding-x-lg: 10px;
+$pagination-line-height: 39px;
+$pagination-color: $gray-200;
+$pagination-bg: transparent;
+$pagination-border-width: 1px;
+$pagination-border-color: $gray-200;
+$pagination-hover-color: theme-color("primary");
+$pagination-hover-bg: transparent;
+$pagination-hover-border-color: theme-color("primary");
+$pagination-active-color: $body-color;
+$pagination-active-bg: transparent;
+$pagination-active-border-color: theme-color("primary");
+$pagination-disabled-color: $gray-150 !default;
+$pagination-disabled-bg: transparent;
+$pagination-disabled-border-color: transparent;
+// Bootstrap variables end
+
+// Template variables start
+$bg-gradient-start: theme-color("primary");
+$bg-gradient-end: darken(desaturate(adjust-hue(theme-color("primary"), -8), 0.61), 0.20);
+$txt-gradient-start: theme-color("primary");
+$txt-gradient-end: darken(desaturate(adjust-hue(theme-color("primary"), -8), 0.61), 0.20);
+$sectiom-mt: 140px;
+$topline_icon_color: rgba(255,255,255,.6);
+$body-font-family: 'Roboto',sans-serif;
+$h-font-family: $headings-font-family;
+$h-font-family-alt: $headings-font-family;
+$headings-color: #444;
+$body-font-weight: 400;
+$header-nav-color: #444;
+$header-py: 18px;
+$header-py-lg: 14px;
+$header-py-md: 12px;
+$header-py-sm: 9px;
+$header-py-stuck: 9px;
+$header-max-height: 60px;
+$header-max-width: 205px;
+$header-max-height-md: 50px;
+$header-max-height-sm: 40px;
+$header-width-sm: 120px;
+$header-nav-font-family: $h-font-family-alt;
+$quickLinks-bg1: darken(adjust-hue(theme-color("primary"), -2), 3.14);
+$quickLinks-bg2: lighten(theme-color("primary"), 0);
+$quickLinks-bg3: lighten(theme-color("primary"), 2.55);
+$quickLinks-bg4: lighten(theme-color("primary"), 9.22);
+$quickLinks-bg5: lighten(adjust-hue(theme-color("primary"), 1), 13.14);
+$quickLinks-bg6: lighten(adjust-hue(theme-color("primary"), 1), 18.43);
+$btn-fill-brd: theme-color("primary");
+$btn-fill-bg: theme-color("primary");
+$back-btn-bg: theme-color("primary-alt");
+$theme-colors: (
+        primary: #662f90,
+        light-gray: #f0f0f0,
+);
+$baseFontSize : 16;
+
+@function rem($pixels, $context: $baseFontSize) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+
+  @return $pixels / $context * 1rem;
+}
+
+body{
+        font-family: "Roboto", serif !important;
+}
+
+// Template variables end
+
