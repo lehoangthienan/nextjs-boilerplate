@@ -1,0 +1,8 @@
+version: '3.3'
+services:
+    test-container:
+        image: test-image
+        restart: always
+        ports:
+            - 3001:3001
+        container_name: test-container
