@@ -68,7 +68,15 @@
     "with-query": "^1.1.2"
   },
   "devDependencies": {
-    "eslint": "^5.15.3",
-    "eslint-plugin-react": "^7.12.4"
+    "eslint": "5.7.0",
+    "eslint-config-airbnb": "17.1.0",
+    "eslint-config-airbnb-base": "13.1.0",
+    "eslint-config-prettier": "3.1.0",
+    "eslint-import-resolver-webpack": "0.10.1",
+    "eslint-plugin-import": "2.14.0",
+    "eslint-plugin-jsx-a11y": "6.1.2",
+    "eslint-plugin-prettier": "3.0.0",
+    "eslint-plugin-react": "7.11.1",
+    "eslint-plugin-redux-saga": "^1.0.0"
   }
 }

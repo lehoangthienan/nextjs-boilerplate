@@ -19,7 +19,7 @@ module.exports = withSass({
 
         config.module.rules.push(
             {
-                test: /\.(eot|woff|woff2|ttf|svg|png|jpg|gif)$/,
+                test: /\.(eot|woff|woff2|ttf|svg|png|jpg|gif|otf)$/,
                 use: {
                     loader: 'url-loader',
                     options: {
@@ -28,7 +28,6 @@ module.exports = withSass({
                     }
                 }
             }
-
         )
 
         config.plugins.push(new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /vi|en/));
@@ -36,4 +35,3 @@ module.exports = withSass({
         return config;
     },
 })
-

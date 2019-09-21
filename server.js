@@ -6,7 +6,7 @@ const fs = require('fs');
 const axios = require('axios');
 const sm = require('sitemap');
 
-const PORT = process.env.PORT || 3004;
+const PORT = process.env.PORT || 3001;
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dir: './', dev });
 const handler = app.getRequestHandler();

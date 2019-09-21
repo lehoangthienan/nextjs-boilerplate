@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
+import { connect } from 'react-redux';
+import loGet from 'lodash/get';
 
-import { connectSocket, disConnectSocket } from '../../services/socketService'
+import AppActions from '../../redux/appRedux';
+import { connectSocket, disConnectSocket } from '../../services/socketService';
 
 import '../../scss/style.scss';
 import '../../scss/_antd.scss';
@@ -10,26 +13,27 @@ import '../../scss/_antd.scss';
 const Header = dynamic({ loader: () => import('../../components/Header') });
 const Footer = dynamic({ loader: () => import('../../components/Footer') });
 
-export default class Full extends Component {
+class Full extends Component {
   componentDidMount() {
     const {
       startupWorkingFlow, history, dispatch, // eslint-disable-line
-    } = this.props
-    startupWorkingFlow(history)
-    let token = ''
-    let user = {}
+    } = this.props;
+    startupWorkingFlow(history);
+    let token = '';
+    let user = {};
 
-    if (localStorage.getItem('token')) token = localStorage.getItem('token')
-    if (localStorage.getItem('user')) user = JSON.parse(localStorage.getItem('user'))
+    if (localStorage.getItem('token')) token = localStorage.getItem('token');
+    if (localStorage.getItem('user')) user = JSON.parse(localStorage.getItem('user'));
 
-    startupWorkingFlow(history)
+    startupWorkingFlow(history);
 
-    connectSocket(token, dispatch, loGet(user, ['_id'], ''))
+    connectSocket(token, dispatch, loGet(user, ['_id'], ''));
   }
 
   componentWillUnmount() {
-    disConnectSocket()
+    disConnectSocket();
   }
+
   render() {
     const { children } = this.props;
     return (
@@ -43,5 +47,24 @@ export default class Full extends Component {
 }
 
 Full.propTypes = {
+  startupWorkingFlow: PropTypes.func,
+  // isReady: PropTypes.bool,
+  history: PropTypes.object,
   children: PropTypes.any,
 };
+
+const mapStateToProps = (state) => ({
+  isReady: state.toJS().app.isReady,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  dispatch,
+  startupWorkingFlow: (history) => {
+    dispatch(AppActions.startupWorkingFlow(history));
+  },
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Full);

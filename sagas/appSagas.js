@@ -8,8 +8,7 @@ import {
   import Notifications from 'react-notification-system-redux'
   import { setToken } from '../services/apiConfig'
   import AppActions, { AppTypes } from '../redux/appRedux'
-  import UserActions from '../redux/userRedux'
-  
+
   function* appRootSagas() {
     yield all([
       yield takeLatest(AppTypes.SHOW_SUCCESS_REQUEST, showSuccessRequest),
@@ -27,7 +26,7 @@ import {
       if (localStorage.getItem('token')) {
         tokenData = localStorage.getItem('token')
       }
-      if (localStorage.getItem('user')) yield put(UserActions.setUserInformationFromLocalDb(JSON.parse(localStorage.getItem('user'))))
+      // if (localStorage.getItem('user')) yield put(UserActions.setUserInformationFromLocalDb(JSON.parse(localStorage.getItem('user'))))
       const isSignin = JSON.parse(localStorage.getItem('isLogin'))
       if (isSignin) {
         setToken(tokenData)
