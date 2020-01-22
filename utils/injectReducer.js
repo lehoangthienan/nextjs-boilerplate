@@ -1,8 +1,8 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import hoistNonReactStatics from 'hoist-non-react-statics'
+import React from 'react';
+import PropTypes from 'prop-types';
+import hoistNonReactStatics from 'hoist-non-react-statics';
 
-import getInjectors from './reducerInjectors'
+import getInjectors from './reducerInjectors';
 
 /**
  * Dynamically injects a reducer
@@ -24,17 +24,17 @@ export default ({ key, reducer }) => (WrappedComponent) => {
       || 'Component'})`;
 
     UNSAFE_componentWillMount() { // eslint-disable-line
-      const { injectReducer } = this.injectors
+      const { injectReducer } = this.injectors;
 
-      injectReducer(key, reducer)
+      injectReducer(key, reducer);
     }
 
     injectors = getInjectors(this.context.store);
 
     render() {
-      return <WrappedComponent {...this.props} />
+      return <WrappedComponent {...this.props} />;
     }
   }
 
-  return hoistNonReactStatics(ReducerInjector, WrappedComponent)
-}
+  return hoistNonReactStatics(ReducerInjector, WrappedComponent);
+};
