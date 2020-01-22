@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
-import { withAmp } from 'next/amp';
 
 const Full = dynamic({ loader: () => import('../containers/Full') });
 const Content = dynamic({ loader: () => import('../containers/Content') });
@@ -48,4 +47,4 @@ class HomePage extends Component {
   }
 }
 
-export default withAmp(HomePage, { hybrid: true });
+export default HomePage;

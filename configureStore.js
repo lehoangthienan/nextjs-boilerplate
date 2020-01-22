@@ -1,26 +1,26 @@
-import { createStore, applyMiddleware } from 'redux'
-import createSagaMiddleware from 'redux-saga'
-import { composeWithDevTools } from 'redux-devtools-extension'
-import { fromJS } from 'immutable'
+import { createStore, applyMiddleware } from 'redux';
+import createSagaMiddleware from 'redux-saga';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import { fromJS } from 'immutable';
 
-import rootReducer from './reducers'
-import rootSaga from './sagas'
+import rootReducer from './reducers';
+import rootSaga from './sagas';
 
-const sagaMiddleware = createSagaMiddleware()
+const sagaMiddleware = createSagaMiddleware();
 
 const bindMiddleware = (middleware) => {
   if (process.env.NODE_ENV !== 'production') {
-    return composeWithDevTools(applyMiddleware(...middleware))
+    return composeWithDevTools(applyMiddleware(...middleware));
   }
-  return applyMiddleware(...middleware)
-}
+  return applyMiddleware(...middleware);
+};
 
 export default function configureStore(initialState = {}) {
   const store = createStore(
     rootReducer,
     fromJS(initialState),
     bindMiddleware([sagaMiddleware])
-  )
+  );
 
   /**
    * next-redux-saga depends on `runSagaTask` and `sagaTask` being attached to the store.
@@ -31,10 +31,10 @@ export default function configureStore(initialState = {}) {
    */
 
   store.runSagaTask = () => {
-    store.sagaTask = sagaMiddleware.run(rootSaga)
-  }
+    store.sagaTask = sagaMiddleware.run(rootSaga);
+  };
 
   // run the rootSaga initially
-  store.runSagaTask()
-  return store
+  store.runSagaTask();
+  return store;
 }
