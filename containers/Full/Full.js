@@ -8,7 +8,7 @@ import AppActions from '../../redux/appRedux';
 import { connectSocket, disConnectSocket } from '../../services/socketService';
 
 import '../../scss/style.scss';
-import '../../scss/_antd.scss';
+import 'antd/dist/antd.css';
 
 const Header = dynamic({ loader: () => import('../../components/Header') });
 const Footer = dynamic({ loader: () => import('../../components/Footer') });
@@ -48,7 +48,6 @@ class Full extends Component {
 
 Full.propTypes = {
   startupWorkingFlow: PropTypes.func,
-  // isReady: PropTypes.bool,
   history: PropTypes.object,
   children: PropTypes.any,
 };

@@ -1,6 +1,6 @@
 import io from 'socket.io-client'
 
-import configs from './configs'
+import configs from '../configures/configs'
 import { EVENT_SOCKET } from '../utils/constants'
 
 let socket = null
@@ -14,10 +14,9 @@ export function connectSocket(token, dispatch, userId) { // eslint-disable-line
   })
 
   socket.on(EVENT_SOCKET.CONNECT, () => {
-    // eslint-disable-next-line no-console
     console.log('Socket Connect Successfuly')
   })
-  
+
   return socket
 }
 

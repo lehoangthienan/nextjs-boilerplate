@@ -58,6 +58,13 @@ app.prepare()
       });
     });
 
+    // custom route
+    server.get('/xxx-xxx', (req, res) => {
+      app.render(req, res, '/xxx')
+    })
+
+    server.get('*', (req, res) => handler(req, res))
+
     server.listen(PORT, (err) => {
       if (err) throw err && console.log(err);
       console.log(`> Ready on http://localhost:${PORT}`);

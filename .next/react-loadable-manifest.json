@@ -1,0 +1,48 @@
+{
+  "../../components/Footer": [
+    {
+      "id": "./components/Footer/Footer.js",
+      "name": "./components/Footer/Footer.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "../../components/Header": [
+    {
+      "id": "./components/Header/Header.js",
+      "name": "./components/Header/Header.js",
+      "file": "static/chunks/3.js",
+      "publicPath": "static/chunks/3.js"
+    }
+  ],
+  "../containers/Content": [
+    {
+      "id": "./containers/Content/Content.js",
+      "name": "./containers/Content/Content.js",
+      "file": "static/chunks/4.js",
+      "publicPath": "static/chunks/4.js"
+    }
+  ],
+  "../containers/Full": [
+    {
+      "id": "./scss/style.scss",
+      "name": "./scss/style.scss",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": "./configures/configs.js",
+      "name": "./configures/configs.js",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    }
+  ],
+  "./noop": [
+    {
+      "id": "./node_modules/next/dist/client/noop.js",
+      "name": "./node_modules/next/dist/client/noop.js",
+      "file": "static/chunks/0.js",
+      "publicPath": "static/chunks/0.js"
+    }
+  ]
+}
