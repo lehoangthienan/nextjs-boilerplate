@@ -6,7 +6,6 @@ import {
 } from 'redux-saga/effects';
 import { delay } from 'redux-saga';
 
-
 import { setToken } from '../configures/axios';
 import AppActions, { AppTypes } from '../redux/appRedux';
 import {

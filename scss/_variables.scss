@@ -19,3 +19,7 @@ $baseFontSize: 16;
 body {
   font-family: "Roboto", serif !important;
 }
+
+.ant-notification {
+  z-index: 10000 !important;
+}
