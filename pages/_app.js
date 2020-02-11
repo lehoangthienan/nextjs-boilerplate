@@ -6,15 +6,21 @@ import { fromJS } from 'immutable';
 import moment from 'moment';
 import Head from 'next/head';
 import { Provider as ReduxProvider } from 'react-redux';
+import { createIntl, createIntlCache, RawIntlProvider } from 'react-intl';
 
 import '../utils/moment_vi';
 
 import configureStore from '../configureStore';
 
+const cache = createIntlCache();
+
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
     const pageProps = Component.getInitialProps ? await Component.getInitialProps(ctx) : {};
-    return { pageProps };
+    const { req } = ctx;
+    const { locale, messages } = req || window.__NEXT_DATA__.props;
+
+    return { pageProps, locale, messages };
   }
 
   componentDidMount() {
@@ -22,7 +28,22 @@ class MyApp extends App {
   }
 
   render() {
-    const { Component, pageProps, store } = this.props;
+    const {
+      Component,
+      pageProps,
+      store,
+      locale,
+      messages,
+    } = this.props;
+
+    const intl = createIntl(
+      {
+        locale,
+        messages,
+      },
+      cache
+    );
+
     return (
       <ReduxProvider store={store}>
         <Head>
@@ -34,9 +55,9 @@ class MyApp extends App {
             key="font-seccond"
           />
         </Head>
-        {/* <PersistGate loading={null} persistor={persistStore(store)}> */}
-        <Component {...pageProps} />
-        {/* </PersistGate> */}
+        <RawIntlProvider value={intl}>
+          <Component {...pageProps} />
+        </RawIntlProvider>
       </ReduxProvider>
     );
   }

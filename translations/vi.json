@@ -1,0 +1,7 @@
+{
+    "app.containers.DefaultLayout.Dashboard": "Dashboard VI",
+    "app.containers.DefaultLayout.SupportedLanguages": "Supported Languages VI",
+    "app.containers.Dashboard.header": "This is the Dashboard container! VI",
+    "app.components.Header.vi": "Tiếng Việt",
+    "app.components.Header.en": "Tiếng Anh"
+}
