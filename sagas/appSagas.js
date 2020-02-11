@@ -26,7 +26,6 @@ function* startupWorkingFlow({ history }) { // eslint-disable-line
     if (localStorage.getItem('token')) {
       tokenData = localStorage.getItem('token');
     }
-    // if (localStorage.getItem('user')) yield put(UserActions.setUserInformationFromLocalDb(JSON.parse(localStorage.getItem('user'))))
     const isSignin = JSON.parse(localStorage.getItem('isLogin'));
     if (isSignin) {
       setToken(tokenData);

@@ -5,7 +5,10 @@
     "build": "next build",
     "start": "next start",
     "prod_start": "next build && NODE_ENV=production node server.js",
-    "export": "next export"
+    "export": "next export",
+    "analyze": "cross-env ANALYZE=true next build",
+    "analyze:server": "cross-env BUNDLE_ANALYZE=server next build",
+    "analyze:browser": "cross-env BUNDLE_ANALYZE=browser next build"
   },
   "dependencies": {
     "@formatjs/intl-relativetimeformat": "^4.5.9",
@@ -66,6 +69,8 @@
     "with-query": "^1.1.2"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^9.2.1",
+    "cross-env": "^7.0.0",
     "eslint": "5.7.0",
     "eslint-config-airbnb": "17.1.0",
     "eslint-config-airbnb-base": "13.1.0",
