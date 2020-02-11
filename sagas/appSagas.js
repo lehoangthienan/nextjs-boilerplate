@@ -5,9 +5,14 @@ import {
   call,
 } from 'redux-saga/effects';
 import { delay } from 'redux-saga';
-import Notifications from 'react-notification-system-redux';
+
+
 import { setToken } from '../configures/axios';
 import AppActions, { AppTypes } from '../redux/appRedux';
+import {
+  successNotification,
+  errorNotification,
+} from '../utils/notification';
 
 function* appRootSagas() {
   yield all([
@@ -42,12 +47,7 @@ function* startupWorkingFlow({ history }) { // eslint-disable-line
 }
 
 function* showSuccessRequest({ message }) {
-  const notificationOpts = {
-    message,
-    position: 'tc',
-    autoDismiss: 3,
-  };
-  yield put(Notifications.success(notificationOpts));
+  successNotification('Success', message);
 }
 
 function* showErrorRequest(action) {
@@ -69,23 +69,9 @@ function* showErrorRequest(action) {
       message = error.message || 'Server error';
     }
 
-    const notificationOpts = {
-      title: 'Error',
-      message,
-      position: 'tc',
-      autoDismiss: 3,
-    };
-
-    yield put(Notifications.error(notificationOpts));
+    errorNotification('Error', message);
   } catch (e) {
-    const notificationOpts = {
-      title: 'Error',
-      message: 'Server error',
-      position: 'tc',
-      autoDismiss: 3,
-    };
-
-    yield put(Notifications.error(notificationOpts));
+    errorNotification('Error', 'Server error');
   }
 }
 
