@@ -1,4 +1,4 @@
-import moment from 'moment';
+import moment from 'moment'
 
 moment.defineLocale('vi', {
   months: 'Tháng 1_Tháng 2_Tháng 3_Tháng 4_Tháng 5_Tháng 6_Tháng 7_Tháng 8_Tháng 9_Tháng 10_Tháng 11_Tháng 12'.split('_'),
@@ -53,4 +53,4 @@ moment.defineLocale('vi', {
     dow: 1, // Monday is the first day of the week.
     doy: 4, // The week that contains Jan 4th is the first week of the year.
   },
-});
+})

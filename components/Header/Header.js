@@ -1,29 +1,29 @@
-import React, { Component } from 'react';
-import { Select } from 'antd';
-import { FormattedMessage, injectIntl } from 'react-intl';
-import Cookie from 'js-cookie';
+import React, { Component } from 'react'
+import { Select } from 'antd'
+import { FormattedMessage, injectIntl } from 'react-intl'
+import Cookie from 'js-cookie'
 
-import messages from './messages';
+import messages from './messages'
 
-const { Option } = Select;
+const { Option } = Select
 
 class Header extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       locale: Cookie.get('locale') || 'vi',
-    };
+    }
   }
 
   handleChange = (locale) => {
-    Cookie.set('locale', locale);
-    window.location.reload(true);
-    this.setState({ locale });
+    Cookie.set('locale', locale)
+    window.location.reload(true)
+    this.setState({ locale })
   }
 
   render() {
-    const { locale } = this.state;
+    const { locale } = this.state
     return (
       <div>
         <Select value={locale} style={{ width: 120 }} onChange={this.handleChange}>
@@ -31,8 +31,8 @@ class Header extends Component {
           <Option value="en"><FormattedMessage {...messages.en} /></Option>
         </Select>
       </div>
-    );
+    )
   }
 }
 
-export default (injectIntl(Header));
+export default (injectIntl(Header))

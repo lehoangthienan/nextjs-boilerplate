@@ -1,6 +1,6 @@
-import { defineMessages } from 'react-intl';
+import { defineMessages } from 'react-intl'
 
-export const scope = 'app.components.Header';
+export const scope = 'app.components.Header'
 
 export default defineMessages({
   vi: {
@@ -11,4 +11,4 @@ export default defineMessages({
     id: `${scope}.en`,
     defaultMessage: 'English',
   },
-});
+})

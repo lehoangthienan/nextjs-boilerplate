@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import dynamic from 'next/dynamic';
-import Head from 'next/head';
+import React, { Component } from 'react'
+import dynamic from 'next/dynamic'
+import Head from 'next/head'
 
-const Full = dynamic({ loader: () => import('../containers/Full') });
-const Content = dynamic({ loader: () => import('../containers/Content') });
+const Full = dynamic({ loader: () => import('../containers/Full') })
+const Content = dynamic({ loader: () => import('../containers/Content') })
 
-class HomePage extends Component {
+class HomePage extends Component { // eslint-disable-line
   render() {
     return (
       <div>
@@ -43,8 +43,8 @@ class HomePage extends Component {
           <Content />
         </Full>
       </div>
-    );
+    )
   }
 }
 
-export default HomePage;
+export default HomePage

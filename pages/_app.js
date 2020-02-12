@@ -1,30 +1,30 @@
-import App from 'next/app';
-import React from 'react';
-import withRedux from 'next-redux-wrapper';
-import withReduxSaga from 'next-redux-saga';
-import { fromJS } from 'immutable';
-import moment from 'moment';
-import Head from 'next/head';
-import { Provider as ReduxProvider } from 'react-redux';
-import { createIntl, createIntlCache, RawIntlProvider } from 'react-intl';
+import App from 'next/app'
+import React from 'react'
+import withRedux from 'next-redux-wrapper'
+import withReduxSaga from 'next-redux-saga'
+import { fromJS } from 'immutable'
+import moment from 'moment'
+import Head from 'next/head'
+import { Provider as ReduxProvider } from 'react-redux'
+import { createIntl, createIntlCache, RawIntlProvider } from 'react-intl'
 
-import configureStore from '../configureStore';
+import configureStore from '../configureStore'
 
-import '../utils/moment_vi';
+import '../utils/moment_vi'
 
-const cache = createIntlCache();
+const cache = createIntlCache()
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
-    const pageProps = Component.getInitialProps ? await Component.getInitialProps(ctx) : {};
-    const { req } = ctx;
-    const { locale, messages } = req || window.__NEXT_DATA__.props;
+    const pageProps = Component.getInitialProps ? await Component.getInitialProps(ctx) : {}
+    const { req } = ctx
+    const { locale, messages } = req || window.__NEXT_DATA__.props
 
-    return { pageProps, locale, messages };
+    return { pageProps, locale, messages }
   }
 
   componentDidMount() {
-    moment.locale('vi');
+    moment.locale('vi')
   }
 
   render() {
@@ -34,7 +34,7 @@ class MyApp extends App {
       store,
       locale,
       messages,
-    } = this.props;
+    } = this.props
 
     const intl = createIntl(
       {
@@ -42,7 +42,7 @@ class MyApp extends App {
         messages,
       },
       cache
-    );
+    )
 
     return (
       <ReduxProvider store={store}>
@@ -62,11 +62,11 @@ class MyApp extends App {
           <Component {...pageProps} />
         </RawIntlProvider>
       </ReduxProvider>
-    );
+    )
   }
 }
 
 export default withRedux(configureStore, {
   serializeState: (state) => state.toJS(),
   deserializeState: (state) => fromJS(state),
-})(withReduxSaga(MyApp));
+})(withReduxSaga(MyApp))

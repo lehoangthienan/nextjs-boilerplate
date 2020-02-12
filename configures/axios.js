@@ -1,5 +1,5 @@
-import axios from 'axios';
-import configs from './configs';
+import axios from 'axios'
+import configs from './configs'
 
 const API = axios.create({
   baseURL: configs.API_URL,
@@ -9,7 +9,7 @@ const API = axios.create({
     'Content-Type': 'application/json',
     Accept: 'application/json',
   },
-});
+})
 
 API.interceptors.response.use(
   (response) => response.data,
@@ -22,12 +22,12 @@ API.interceptors.response.use(
             return Promise.reject({ message: 'No response was received' }) // eslint-disable-line
     }
 
-    return Promise.reject(error);
+    return Promise.reject(error)
   }
-);
+)
 
 const setToken = token => { // eslint-disable-line
-  API.defaults.headers.common.Authorization = token;
-};
+  API.defaults.headers.common.Authorization = token
+}
 
-export { API, setToken };
+export { API, setToken }
