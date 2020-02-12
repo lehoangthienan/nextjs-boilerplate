@@ -5,6 +5,7 @@ import {
   call,
 } from 'redux-saga/effects';
 import { delay } from 'redux-saga';
+import Cookie from 'js-cookie';
 
 import { setToken } from '../configures/axios';
 import AppActions, { AppTypes } from '../redux/appRedux';
@@ -23,21 +24,13 @@ function* appRootSagas() {
 
 /*
     App working flow when firt load
-  */
+*/
+
 function* startupWorkingFlow({ history }) { // eslint-disable-line
   try {
-    let tokenData = '';
-    if (localStorage.getItem('token')) {
-      tokenData = localStorage.getItem('token');
-    }
-    const isSignin = JSON.parse(localStorage.getItem('isLogin'));
-    if (isSignin) {
-      setToken(tokenData);
-      yield put(AppActions.getAppReady(true));
-    } else {
-      setToken('');
-      yield put(AppActions.getAppReady(true));
-    }
+    if (Cookie.get('isSignin')) setToken(Cookie.get('token') || '');
+    else setToken('');
+    yield put(AppActions.getAppReady(true));
   } catch (error) {
     setToken('');
     yield put(AppActions.getAppReady(true));

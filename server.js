@@ -1,11 +1,9 @@
-
 const express = require('express');
 const next = require('next');
 const path = require('path');
 const fs = require('fs');
 const axios = require('axios');
 const sm = require('sitemap');
-const IntlPolyfill = require('intl');
 const glob = require('glob');
 const cookieParser = require('cookie-parser');
 
@@ -13,9 +11,6 @@ const PORT = process.env.PORT || 3001;
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dir: './', dev });
 const handler = app.getRequestHandler();
-
-Intl.NumberFormat = IntlPolyfill.NumberFormat;
-Intl.DateTimeFormat = IntlPolyfill.DateTimeFormat;
 
 const languages = glob
   .sync('./translations/*.json')
@@ -52,12 +47,15 @@ app.prepare()
     server.use(cookieParser());
     server.use((req, res, next) => {
       const locale = detectLocale(req);
+
       req.locale = locale;
       req.localeDataScript = getLocaleDataScript(locale);
       req.messages = getMessages(locale);
       res.cookie('locale', locale, { maxAge: (new Date() * 0.001) + (365 * 24 * 3600) });
+
       next();
     });
+    server.use('/public', express.static('public'));
 
     server.use('/', express.static(path.join(__dirname, '/static')));
 

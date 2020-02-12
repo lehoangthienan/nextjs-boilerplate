@@ -1,4 +1,4 @@
-import moment from 'moment'
+import moment from 'moment';
 
 moment.defineLocale('vi', {
   months: 'Tháng 1_Tháng 2_Tháng 3_Tháng 4_Tháng 5_Tháng 6_Tháng 7_Tháng 8_Tháng 9_Tháng 10_Tháng 11_Tháng 12'.split('_'),
@@ -9,7 +9,7 @@ moment.defineLocale('vi', {
   weekdaysMin: 'CN_T2_T3_T4_T5_T6_T7'.split('_'),
   weekdaysParseExact: true,
   meridiemParse: /sa|ch/i,
-  isPM: input => /^ch$/i.test(input),
+  isPM: (input) => /^ch$/i.test(input),
   // eslint-disable-next-line no-nested-ternary
   meridiem: (hours, minutes, isLower) => hours < 12 ? (isLower ? 'sa' : 'SA') : (isLower ? 'ch' : 'CH'),
   longDateFormat: {
@@ -48,9 +48,9 @@ moment.defineLocale('vi', {
     yy: '%d năm',
   },
   dayOfMonthOrdinalParse: /\d{1,2}/,
-  ordinal: number => number,
+  ordinal: (number) => number,
   week: {
     dow: 1, // Monday is the first day of the week.
     doy: 4, // The week that contains Jan 4th is the first week of the year.
   },
-})
+});

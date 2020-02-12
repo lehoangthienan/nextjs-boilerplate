@@ -1,8 +1,8 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import hoistNonReactStatics from 'hoist-non-react-statics'
+import React from 'react';
+import PropTypes from 'prop-types';
+import hoistNonReactStatics from 'hoist-non-react-statics';
 
-import getInjectors from './sagaInjectors'
+import getInjectors from './sagaInjectors';
 
 /**
  * Dynamically injects a saga, passes component's props as saga arguments
@@ -28,23 +28,23 @@ export default ({ key, saga, mode }) => (WrappedComponent) => {
       || 'Component'})`;
 
     UNSAFE_componentWillMount() { // eslint-disable-line
-      const { injectSaga } = this.injectors
+      const { injectSaga } = this.injectors;
 
-      injectSaga(key, { saga, mode }, this.props)
+      injectSaga(key, { saga, mode }, this.props);
     }
 
     componentWillUnmount() {
-      const { ejectSaga } = this.injectors
+      const { ejectSaga } = this.injectors;
 
-      ejectSaga(key)
+      ejectSaga(key);
     }
 
     injectors = getInjectors(this.context.store);
 
     render() {
-      return <WrappedComponent {...this.props} />
+      return <WrappedComponent {...this.props} />;
     }
   }
 
-  return hoistNonReactStatics(InjectSaga, WrappedComponent)
-}
+  return hoistNonReactStatics(InjectSaga, WrappedComponent);
+};

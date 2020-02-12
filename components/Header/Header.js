@@ -12,7 +12,7 @@ class Header extends Component {
     super(props);
 
     this.state = {
-      locale: Cookie.get('locale', 'vi'),
+      locale: Cookie.get('locale') || 'vi',
     };
   }
 

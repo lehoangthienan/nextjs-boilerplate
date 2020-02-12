@@ -8,9 +8,9 @@ import Head from 'next/head';
 import { Provider as ReduxProvider } from 'react-redux';
 import { createIntl, createIntlCache, RawIntlProvider } from 'react-intl';
 
-import '../utils/moment_vi';
-
 import configureStore from '../configureStore';
+
+import '../utils/moment_vi';
 
 const cache = createIntlCache();
 
@@ -47,13 +47,16 @@ class MyApp extends App {
     return (
       <ReduxProvider store={store}>
         <Head>
-          <link rel="icon" type="image/png" href="https://scontent.fsgn5-7.fna.fbcdn.net/v/t1.0-9/52450069_1244416252350097_4263800870111543296_o.jpg?_nc_cat=103&_nc_oc=AQkr71IjoW5A-nwZ1B6EDpPbq1ezM87gKs8R6u3qCHnX6r3farJ0KsYKEUUDFAcGsFBu7clAvhTeht1WnCRlM4gX&_nc_ht=scontent.fsgn5-7.fna&oh=dd6926dd1030c4336819dd7338a6785c&oe=5E363849"></link>
+          <link rel="icon" type="image/png" href="https://reactjsexample.com/content/images/2016/08/20160828182925.jpg"></link>
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
           <link
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900"
             rel="stylesheet"
             key="font-seccond"
           />
+          <link rel="manifest" href="/public/static/manifest/manifest.json" />
+          <link rel="manifest" href="/public/static/manifest/site.webmanifest" />
+          <link rel="shortcut icon" href="/public/static/icons/dowload.svg" />
         </Head>
         <RawIntlProvider value={intl}>
           <Component {...pageProps} />
