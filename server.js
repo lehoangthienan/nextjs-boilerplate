@@ -6,6 +6,7 @@ const axios = require('axios')
 const sm = require('sitemap')
 const glob = require('glob')
 const cookieParser = require('cookie-parser')
+const cacheableResponse = require('cacheable-response')
 
 const PORT = process.env.PORT || 3001
 const dev = process.env.NODE_ENV !== 'production'
@@ -37,8 +38,24 @@ const detectLocale = (req) => {
   return 'vi'
 }
 
-// eslint-disable-next-line global-require
-const getMessages = (locale) => require(`./translations/${locale}.json`)
+const getMessages = (locale) => require(`./translations/${locale}.json`) // eslint-disable-line
+
+const ssrCache = cacheableResponse({
+  ttl: 1000 * 60 * 60, // 1hour
+  compress: true,
+  get: async ({ req, res, pagePath, queryParams }) => {
+    const data = await app.renderToHTML(req, res, pagePath, queryParams)
+
+    if (res.statusCode === 404) {
+      res.end(data)
+      return
+    }
+
+    return { data } // eslint-disable-line
+  },
+  send: ({ data, res }) => res.send(data),
+})
+
 
 app.prepare()
   .then(() => {
@@ -61,7 +78,7 @@ app.prepare()
 
     server.get('/_next/*', (req, res) => handler(req, res))
 
-    server.get('/', (req, res) => app.render(req, res, '/'))
+    server.get('/', (req, res) => ssrCache({ req, res, pagePath: '/' }))
 
     // custom route
     server.get('/xxx-xxx', (req, res) => {
