@@ -3,12 +3,15 @@
   "scripts": {
     "dev": "node server.js",
     "build": "next build",
-    "start": "next start",
+    "start": "NODE_ENV=production next start",
     "prod": "next build && NODE_ENV=production node server.js",
-    "export": "next export",
+    "export": "cross-env NEXT_EXPORT=true next build && cross-env NEXT_EXPORT=true next export",
     "analyze": "cross-env ANALYZE=true next build",
     "analyze:server": "cross-env BUNDLE_ANALYZE=server next build",
-    "analyze:browser": "cross-env BUNDLE_ANALYZE=browser next build"
+    "analyze:browser": "cross-env BUNDLE_ANALYZE=browser next build",
+    "test-unit": "jest",
+    "test-integration": "next build && start-server-and-test start http://localhost:3000 cypress",
+    "cypress": "$(npm bin)/cypress run --record"
   },
   "dependencies": {
     "@formatjs/intl-relativetimeformat": "^4.5.9",
@@ -28,6 +31,8 @@
     "lodash": "^4.17.11",
     "moment": "^2.24.0",
     "next": "^9.2.0",
+    "next-compose-plugins": "^2.2.0",
+    "next-offline": "^5.0.2",
     "next-redux-saga": "3.0.0-beta.1",
     "next-redux-wrapper": "^3.0.0-alpha.1",
     "node-sass": "^4.14.1",
