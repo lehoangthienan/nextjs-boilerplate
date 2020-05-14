@@ -63,3 +63,5 @@ typings/
 configs.js
 
 .next
+
+out

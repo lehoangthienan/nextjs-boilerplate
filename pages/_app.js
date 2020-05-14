@@ -10,6 +10,8 @@ import { createIntl, createIntlCache, RawIntlProvider } from 'react-intl'
 
 import configureStore from '../configureStore'
 
+import 'antd/dist/antd.css'
+import '../scss/style.scss'
 import '../utils/moment_vi'
 
 const cache = createIntlCache()

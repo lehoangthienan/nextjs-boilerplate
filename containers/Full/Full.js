@@ -4,12 +4,9 @@ import dynamic from 'next/dynamic'
 import { connect } from 'react-redux'
 import loGet from 'lodash/get'
 import Cookie from 'js-cookie'
-import 'antd/dist/antd.css'
 
 import AppActions from '../../redux/appRedux'
 import { connectSocket, disConnectSocket } from '../../services/socketService'
-
-import '../../scss/style.scss'
 
 const Header = dynamic({ loader: () => import('../../components/Header') })
 const Footer = dynamic({ loader: () => import('../../components/Footer') })
