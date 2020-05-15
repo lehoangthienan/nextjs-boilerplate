@@ -44,7 +44,7 @@ const configOffline = withOffline({
   workboxOpts: {
     swDest: process.env.NEXT_EXPORT
       ? 'service-worker.js'
-      : 'static/service-worker.js',
+      : 'public/static/service-worker.js',
     runtimeCaching: [
       {
         urlPattern: /^https?.*/,
@@ -62,7 +62,7 @@ const configOffline = withOffline({
     async rewrites() {
       return [
         {
-          source: '/service-worker.js',
+          source: '/public/static/service-worker.js',
           destination: '/_next/static/service-worker.js',
         },
       ]
