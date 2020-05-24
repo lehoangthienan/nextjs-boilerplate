@@ -19,7 +19,6 @@ class Header extends Component {
   handleChange = (locale) => {
     Cookie.set('locale', locale)
     window.location.reload(true)
-    this.setState({ locale })
   }
 
   render() {
