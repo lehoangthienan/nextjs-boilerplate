@@ -54,10 +54,10 @@ const mapStateToProps = (state) => ({
   isReady: state.toJS().app.isReady,
 })
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   dispatch,
   startupWorkingFlow: (history) => {
-    dispatch(AppActions.startupWorkingFlow(history))
+    dispatch(AppActions.startupWorkingFlow(history)) //eslint-disable-line
   },
 })
 

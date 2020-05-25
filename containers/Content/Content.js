@@ -15,6 +15,7 @@ const Content = () =>(
   <Form
     {...layout}
     name="basic"
+    id="basic"
   >
     <Form.Item
       label="Username"

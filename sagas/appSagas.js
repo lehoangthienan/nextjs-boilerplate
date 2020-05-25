@@ -16,9 +16,9 @@ import {
 
 function* appRootSagas() {
   yield all([
+    yield takeLatest(AppTypes.STARTUP_WORKING_FLOW, startupWorkingFlow),
     yield takeLatest(AppTypes.SHOW_SUCCESS_REQUEST, showSuccessRequest),
     yield takeLatest(AppTypes.SHOW_ERROR_REQUEST, showErrorRequest),
-    yield takeLatest(AppTypes.STARTUP_WORKING_FLOW, startupWorkingFlow),
   ])
 }
 
@@ -26,14 +26,14 @@ function* appRootSagas() {
     App working flow when firt load
 */
 
-function* startupWorkingFlow({ history }) { // eslint-disable-line
+export function* startupWorkingFlow() { // eslint-disable-line
   try {
     if (Cookie.get('isSignin')) setToken(Cookie.get('token') || '')
     else setToken('')
-    yield put(AppActions.getAppReady(true))
+    yield put(AppActions.getAppReady(true)) // eslint-disable-line
   } catch (error) {
     setToken('')
-    yield put(AppActions.getAppReady(true))
+    yield put(AppActions.getAppReady(true)) // eslint-disable-line
     yield put(AppActions.showErrorRequest(error))
   }
 }
