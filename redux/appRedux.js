@@ -21,9 +21,9 @@ export const INITIAL_STATE = fromJS({
 })
 
 /* ------------- Reducers ------------- */
-const startupWorkingFlow = (state) => state.merge({ isReady: false })
+export const startupWorkingFlow = (state) => state.merge({ isReady: false })
 
-const getAppReady = (state, { isReady }) => state.merge({ isReady })
+export const getAppReady = (state, { isReady }) => state.merge({ isReady })
 
 /* ------------- Hookup Reducers To Types ------------- */
 

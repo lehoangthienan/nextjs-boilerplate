@@ -2,7 +2,7 @@ import React from 'react'
 import LazyLoad from 'react-lazyload'
 
 const  Footer = () => (
-  <LazyLoad height={400}>
+  <LazyLoad id="basic" height={400}>
     <div id="footer-desktop-main" className="row mt-2">
     </div>
   </LazyLoad>
