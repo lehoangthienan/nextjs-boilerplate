@@ -1,0 +1,85 @@
+{
+  "name": "nextjs-example",
+  "version": "1.0.0",
+  "license": "ISC",
+  "description": "nextjs-example",
+  "main": "pages/index.js",
+  "scripts": {
+    "lint-staged": "lint-staged",
+    "build": "NODE_ENV=production next build",
+    "test:ci": "jest --maxWorkers=2 --ci",
+    "test": "jest --watch",
+    "dev": "next dev",
+    "start": "NODE_ENV=production next start",
+    "clean": "rimraf node_modules/.cache .next",
+    "lint": "standard --verbose | snazzy",
+    "lint:fix": "standard --fix --verbose | snazzy"
+  },
+  "dependencies": {
+    "antd": "^4.16.13",
+    "axios": "^0.19.0",
+    "compression": "^1.7.1",
+    "express": "^4.16.2",
+    "helmet": "^3.20.0",
+    "humps": "^2.0.1",
+    "immutable": "^3.8.2",
+    "next": "10",
+    "next-redux-wrapper": "^5.0.0",
+    "prop-types": "^15.6.1",
+    "react": "^17.0.2",
+    "react-dom": "^16.13.1",
+    "react-helmet": "^6.0.0",
+    "react-is": "^16.13.1",
+    "react-redux": "^7.0.3",
+    "redux": "^4.0.1",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
+    "sass": "^1.42.1",
+    "styled-components": "^5.0.0",
+    "styled-normalize": "^8.0.6"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.0",
+    "@testing-library/jest-dom": "^5.1.1",
+    "@testing-library/react": "^9.4.1",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^25.1.0",
+    "babel-plugin-inline-dotenv": "^1.1.2",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "jest": "^25.1.0",
+    "lint-staged": "^10.0.8",
+    "nodemon": "^2.0.1",
+    "pre-commit": "^1.2.2",
+    "react-test-renderer": "^16.2.0",
+    "rimraf": "^3.0.0",
+    "snazzy": "^8.0.0",
+    "standard": "^13.0.1"
+  },
+  "pre-commit": "lint-staged",
+  "lint-staged": {
+    "*.js": [
+      "yarn lint:fix",
+      "git add"
+    ]
+  },
+  "standard": {
+    "parser": "babel-eslint",
+    "env": [
+      "jest"
+    ]
+  },
+  "engines": {
+    "node": ">= 10"
+  },
+  "jest": {
+    "modulePaths": [
+      "./src",
+      "./src/test"
+    ],
+    "setupFilesAfterEnv": [
+      "@testing-library/jest-dom/extend-expect"
+    ]
+  },
+  "registry": "https://registry.yarnpkg.com"
+}
