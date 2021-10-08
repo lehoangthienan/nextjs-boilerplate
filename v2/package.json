@@ -23,7 +23,7 @@
     "helmet": "^3.20.0",
     "humps": "^2.0.1",
     "immutable": "^3.8.2",
-    "next": "10",
+    "next": "11",
     "next-redux-wrapper": "^5.0.0",
     "prop-types": "^15.6.1",
     "react": "^17.0.2",
