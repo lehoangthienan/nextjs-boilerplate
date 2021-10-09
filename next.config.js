@@ -1,4 +1,4 @@
-const { rewrites } = require('./routes');
+const { rewrites } = require('./routes')
 
 const { ASSET_HOST } = process.env
 
@@ -9,10 +9,9 @@ module.exports = {
   assetPrefix,
   target: 'serverless',
   webpack5: true,
-  assetPrefix,
-  
+
   // Next.js 10+: dynamic URL mapping
-  async rewrites() {
-    return rewrites;
-  },
+  async rewrites () {
+    return rewrites
+  }
 }

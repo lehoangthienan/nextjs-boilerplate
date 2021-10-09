@@ -32,7 +32,7 @@ class SearchRepoContainer extends Component {
         <div className={styles.goTo} onClick={this._goToAbout}>
           GO TO ABOUT (with <code>router</code>)
         </div>
-        <Result/>
+        <Result />
         <SearchResults repos={repos} />
       </Fragment>
     )
