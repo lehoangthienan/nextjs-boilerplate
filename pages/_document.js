@@ -45,7 +45,7 @@ export default class extends Document {
 
   render () {
     return (
-      <Html lang="vi" {...this.helmetHtmlAttrComponents}>
+      <Html lang='vi' {...this.helmetHtmlAttrComponents}>
         <Head>
           { this.helmetJsx }
           { this.helmetHeadComponents }

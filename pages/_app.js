@@ -10,7 +10,7 @@ import createStore from 'store/createStore'
 import Layout from 'components/Layout'
 import theme from 'theme'
 
-import 'antd/dist/antd.css';
+import 'antd/dist/antd.css'
 
 const GlobalStyle = createGlobalStyle`
   ${styledNormalize}

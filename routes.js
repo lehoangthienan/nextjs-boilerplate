@@ -2,17 +2,17 @@
 const rewrites = [
   {
     source: '/health-check',
-    destination: '/api/health-check',
+    destination: '/api/health-check'
   },
   {
     source: '/anle',
-    destination: '/',
+    destination: '/'
   },
   {
     source: '/gioi-thieu',
-    destination: '/about',
-  },
-];
+    destination: '/about'
+  }
+]
 
 /**
  * Must be CommonJS for Node's server compatibility
@@ -20,5 +20,5 @@ const rewrites = [
  * @example: import { ROUTE_PARAMS } from '~/routes';
  */
 module.exports = {
-  rewrites,
-};
+  rewrites
+}
